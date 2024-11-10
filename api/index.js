@@ -32,7 +32,7 @@ app.post('/api/login', async (req, res) => {
         
         const randomCoupon = couponCodes[Math.floor(Math.random() * couponCodes.length)];
         res.status(200).json({
-            message: `Hi ${username}, your Myntra coupon code is: ${randomCoupon}`
+            message: `Hi ${u_name}, your Myntra coupon code is: ${randomCoupon}`
         });
     } catch (error) {
         console.error('Error saving login:', error);
