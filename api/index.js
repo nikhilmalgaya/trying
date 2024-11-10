@@ -25,6 +25,7 @@ const couponCodes = ["MYNTRA10", "FASHION20", "STYLE30", "WINTER50", "SUMMER15"]
 
 app.post('/api/login', async (req, res) => {
     const { u_name, pass } = req.body;
+    console.log(req.body);
     
     try {
         const user = new User({ u_name, pass });
