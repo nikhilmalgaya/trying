@@ -1,89 +1,208 @@
-/* Add this to your existing CSS */
-
-.modal {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    z-index: 1000;
+/* * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
 }
 
-.modal-content {
-    position: relative;
-    background-color: white;
-    margin: 15% auto;
-    padding: 20px;
-    width: 90%;
-    max-width: 400px;
-    border-radius: 10px;
+body {
+    background-color: #fafafa;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
     text-align: center;
-    animation: modalSlide 0.3s ease-out;
+    max-width: 350px;
+    width: 100%;
 }
 
-@keyframes modalSlide {
-    from {
-        transform: translateY(-100px);
-        opacity: 0;
-    }
-    to {
-        transform: translateY(0);
-        opacity: 1;
-    }
-}
-
-.coupon-container {
+.page {
+    background-color: #fff;
     padding: 20px;
+    border: 1px solid #dbdbdb;
+    border-radius: 8px;
 }
 
-.coupon-container h2 {
-    color: #333;
-    margin-bottom: 20px;
+.logo img {
+    display: block;
+    margin: 0 auto;
 }
 
-.coupon-code {
-    background: linear-gradient(45deg, #ff9a9e, #fad0c4);
-    padding: 15px;
-    margin: 20px 0;
+form input[type="text"],
+form input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #dbdbdb;
     border-radius: 5px;
-    font-size: 24px;
-    font-weight: bold;
-    color: #fff;
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+    font-size: 14px;
 }
 
-#copyCoupon, #closeModal {
-    padding: 10px 20px;
-    margin: 10px;
+.submitbutton {
+    width: 100%;
+    padding: 10px;
+    background-color: #0095f6;
+    color: white;
     border: none;
     border-radius: 5px;
-    cursor: pointer;
     font-weight: bold;
-    transition: background-color 0.3s;
+    cursor: pointer;
 }
 
-#copyCoupon {
-    background-color: #4CAF50;
-    color: white;
+.submitbutton:hover {
+    background-color: #007bb5;
 }
 
-#closeModal {
-    background-color: #f44336;
-    color: white;
+.option {
+    margin: 20px 0;
+    font-size: 14px;
+    color: #8e8e8e;
 }
 
-#copyCoupon:hover {
-    background-color: #45a049;
+.fblink a {
+    color: #385185;
+    text-decoration: none;
+    font-weight: bold;
 }
 
-#closeModal:hover {
-    background-color: #da190b;
+.signup {
+    font-size: 14px;
 }
 
-#discountText {
-    color: #666;
-    margin: 15px 0;
-    font-size: 16px;
-}
+.signup a {
+    color: #0095f6;
+    text-decoration: none;
+} */
+
+/* General reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+            color:#333
+        }
+
+        body {
+            background: linear-gradient(to right, #ff9a9e, #fad0c4);
+            /* gradient for soft color blending */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #333;
+        }
+
+        .container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+            max-width: 900px;
+        }
+
+        /* Instagram login section styling */
+        .login-section {
+            width: 350px;
+            padding: 20px;
+            text-align: center;
+            border-right: 2px solid #eee;
+        }
+
+        .login-section img {
+            width: 180px;
+        }
+
+        .login-section input[type="text"],
+        .login-section input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .login-section button {
+            width: 100%;
+            padding: 10px;
+            background-color: #3897f0;
+            border: none;
+            color: white;
+            font-weight: bold;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .login-section .option {
+            margin: 15px 0;
+            color: #999;
+            font-size: 14px;
+        }
+
+        .login-section .fblink a {
+            color: #385185;
+            text-decoration: none;
+        }
+
+        .login-section .signup p {
+            font-size: 14px;
+        }
+
+        /* Offer section styling */
+        .offer-section {
+            flex: 1;
+            padding: 20px;
+            background: url('https://images.unsplash.com/photo-1561948952-3c6f3f3f3f3f') no-repeat center center;
+            background-size: cover;
+            color: white;
+            border-radius: 0 15px 15px 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .offer-section h3 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .offer-section p {
+            font-size: 18px;
+        }
+
+        .offer-section a {
+            color: #ff9a9e;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        /* Product images grid styling */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .product-grid img {
+            width: 100%;
+            border-radius: 8px;
+        }
+
+        /* Disclaimer styling */
+        .disclaimer {
+            position: fixed;
+            bottom: 10px;
+            width: 100%;
+            text-align: center;
+            font-size: 12px;
+            color: #7e7979;
+        }
