@@ -128,7 +128,7 @@
             color: #7e7979;
         } */
 
-        * {
+     * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -141,8 +141,9 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh; /* Allows page to grow in height */
     color: #333;
+    overflow-y: auto; /* Enables scrolling if content is taller than screen */
 }
 
 .container {
@@ -316,4 +317,5 @@ body {
         padding: 8px;
     }
 }
+
 
