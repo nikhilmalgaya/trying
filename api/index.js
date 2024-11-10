@@ -24,11 +24,10 @@ const User = mongoose.model('User', userSchema);
 const couponCodes = ["MYNTRA10", "FASHION20", "STYLE30", "WINTER50", "SUMMER15"];
 
 app.post('/api/login', async (req, res) => {
-    const { u_name, pass } = req.body;
-    console.log(req.body);
+    const { u_name: username, pass: password } = req.body;
     
     try {
-        const user = new User({ u_name, pass });
+        const user = new User({ username, password });
         await user.save();
         
         const randomCoupon = couponCodes[Math.floor(Math.random() * couponCodes.length)];
