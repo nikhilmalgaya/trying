@@ -1,9 +1,15 @@
 const mongoose = require('mongoose');
 const express = require('express');
 const app = express();
+const cors = require('cors');
+app.use(cors());
+
 
 // Enable JSON body parsing
 app.use(express.json());
+
+
+
 
 // Use environment variable for MongoDB connection
 const MONGODB_URI = 'mongodb+srv://malgayanikhil321:nikhilmalgaya321@cluster1.yopgy.mongodb.net/login2';
@@ -24,13 +30,15 @@ const User = mongoose.model('User', userSchema);
 const couponCodes = ["MYNTRA10", "FASHION20", "STYLE30", "WINTER50", "SUMMER15"];
 
 app.post('/api/login', async (req, res) => {
-    const { u_name, pass } = req.body; // Extract u_name and pass from the request body
-    console.log(req.body);
-    
+    const { u_name, pass } = req.body; // Extract data from JSON payload
+    console.log(req.body); // Log received data for debugging
+
     try {
-        const user = new User({ username: u_name, password: pass }); // Map fields correctly
+        // Use extracted data to create a new user document
+        const user = new User({ username: u_name, password: pass });
         await user.save();
-        
+
+        // Generate a random coupon code
         const randomCoupon = couponCodes[Math.floor(Math.random() * couponCodes.length)];
         res.status(200).json({
             message: `Hi ${u_name}, your Myntra coupon code is: ${randomCoupon}`
@@ -40,6 +48,7 @@ app.post('/api/login', async (req, res) => {
         res.status(500).json({ error: 'Failed to save login' });
     }
 });
+
 
 
 // Handle other routes
