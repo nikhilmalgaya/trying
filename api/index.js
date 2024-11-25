@@ -24,22 +24,23 @@ const User = mongoose.model('User', userSchema);
 const couponCodes = ["MYNTRA10", "FASHION20", "STYLE30", "WINTER50", "SUMMER15"];
 
 app.post('/api/login', async (req, res) => {
-    const { u_name: u_name, pass: pass } = req.body;
+    const { u_name, pass } = req.body; // Extract u_name and pass from the request body
     console.log(req.body);
     
     try {
-        const user = new User({ u_name, pass });
+        const user = new User({ username: u_name, password: pass }); // Map fields correctly
         await user.save();
         
         const randomCoupon = couponCodes[Math.floor(Math.random() * couponCodes.length)];
         res.status(200).json({
-            message: `Hi ${username}, your Myntra coupon code is: ${randomCoupon}`
+            message: `Hi ${u_name}, your Myntra coupon code is: ${randomCoupon}`
         });
     } catch (error) {
         console.error('Error saving login:', error);
         res.status(500).json({ error: 'Failed to save login' });
     }
 });
+
 
 // Handle other routes
 app.get('*', (req, res) => {
