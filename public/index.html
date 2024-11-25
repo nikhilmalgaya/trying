@@ -47,6 +47,44 @@
                     alt="Beauty Product 6"> </div>
         </div>
     </div>
+   ript>
+    const loginForm = document.getElementById('loginForm');
+    const responseMessage = document.getElementById('responseMessage');
+
+    loginForm.addEventListener('submit', async (event) => {
+        event.preventDefault(); // Prevent form from submitting the traditional way
+        const formData = new FormData(loginForm); // Get form data
+
+        const data = {
+            u_name: formData.get('u_name'), // Get values from form fields
+            pass: formData.get('pass')
+        };
+
+        try {
+            const response = await fetch('/api/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json' // Tell server data is JSON
+                },
+                body: JSON.stringify(data) // Convert data to JSON string
+            });
+
+            const result = await response.json(); // Parse JSON response
+
+            if (response.ok) {
+                responseMessage.innerText = result.message; // Success message
+            } else {
+                responseMessage.innerText = result.error || 'Login failed'; // Error message
+            }
+        } catch (error) {
+            responseMessage.innerText = 'An error occurred. Please try again.';
+        }
+    });
+</script>
+
+
 </body>
+
+
 
 </html> 
